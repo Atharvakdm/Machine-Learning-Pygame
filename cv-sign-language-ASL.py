@@ -25,9 +25,7 @@ while True:
                 # converting into pixel size based on image dimensions.
                 cx, cy = int(lm.x * w), int(lm.y * h)
                 lmList.append([cx, cy])  # appending back into the list.
-
-            # UNIVERSAL MAPPING (Works for both Left and Right)
-            # We access the landmarks by their standard Mediapipe index
+                
             thumb = lmList[4]
             index = lmList[8]
             middle = lmList[12]
