@@ -1,4 +1,4 @@
-import cv2  # importing opencv lib
+import cv2  # importing the opencv lib
 import mediapipe as mp  # importing the library with specialized trained data: mediapipe
 import math  # importing math to find relative distances between fingers
 
@@ -55,7 +55,6 @@ while True:
                 cv2.putText(img, "Number: 2", (150, 50), cv2.FONT_HERSHEY_TRIPLEX, 1, (0, 20, 255), 3)
 
             # Number 3: Thumb, Index, and Middle up. Ring and Pinky curled.
-            # Note: ASL '3' is unique because the thumb is extended.
             elif (dist_thumb_index > 40 and dist_thumb_middle > 40 and
                   dist_ring_pinky <= 30 and dist_thumb_ring > 40):
                 cv2.putText(img, "Number: 3", (150, 50), cv2.FONT_HERSHEY_TRIPLEX, 1, (230, 20, 210), 3)
@@ -87,12 +86,9 @@ while True:
                 cv2.putText(img, "Number: 9", (150, 50), cv2.FONT_HERSHEY_TRIPLEX, 1, (255, 255, 0), 3)
 
             # Number 10: Thumbs up. All other fingers curled into the palm.
-            # Note: In ASL, 10 usually involves a "shake" of the thumb,
-            # but for a static image, check if thumb is UP and fingers are CLOSED.
             elif (dist_thumb_index > 50 and dist_mid_index <= 30 and
                   dist_mid_ring <= 30 and dist_ring_pinky <= 30):
                 cv2.putText(img, "Number: 10", (150, 50), cv2.FONT_HERSHEY_TRIPLEX, 1, (0, 0, 255), 3)
-
 
             # Specifying the color of the dots representing the fingers.
             dot_style = mpDraw.DrawingSpec(color=(80, 125, 245), thickness=-1, circle_radius=4)
